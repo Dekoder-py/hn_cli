@@ -1,5 +1,5 @@
 use serde::Deserialize;
-use std::io;
+use clap::Parser;
 
 #[derive(Deserialize)]
 struct Story {
@@ -8,6 +8,14 @@ struct Story {
     score: u32,
     by: String,
     descendants: u32,
+}
+
+#[derive(Parser, Debug)]
+#[command(version, about, long_about= None)]
+struct Args {
+    /// Number of articles to show
+    #[arg(short, long)]
+    number: usize,
 }
 
 fn main() {
@@ -24,15 +32,9 @@ fn main() {
         .json()
         .expect("Failed to parse IDs");
 
-    let mut input = String::new();
+    let args = Args::parse();
 
-    println!("How many stories?");
-    io::stdin().read_line(&mut input).expect("Failed to read input");
-
-    let trimmed = input.trim();
-    let amount: usize = trimmed.parse::<usize>().expect("Error parsing number");
-
-    for (i, id) in top_ids.iter().take(amount).enumerate() {
+    for (i, id) in top_ids.iter().take(args.number).enumerate() {
         let url = format!("https://hacker-news.firebaseio.com/v0/item/{id}.json");
 
         let story: Story = client
