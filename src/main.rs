@@ -14,7 +14,7 @@ struct Story {
 #[command(version, about, long_about= None)]
 struct Args {
     /// Number of articles to show
-    #[arg(short, long)]
+    #[arg(value_name="NUMBER", default_value_t=10)]
     number: usize,
 }
 
