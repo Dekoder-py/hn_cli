@@ -7,7 +7,7 @@ struct Story {
     url: Option<String>,
     score: u32,
     by: String,
-    descendants: u32,
+    descendants: Option<u32>,
 }
 
 #[derive(Parser, Debug)]
@@ -47,7 +47,7 @@ fn main() {
         let link = story.url.as_deref().unwrap_or("(no URL)");
         println!("{}. {} ({} points by {})", i + 1, story.title, story.score, story.by);
         println!("  {}", link);
-        println!("  {} comments\n", story.descendants);
+        println!("  {} comments\n", story.descendants.unwrap_or(0));
 
     }
     
