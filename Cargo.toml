@@ -2,17 +2,10 @@
 name = "dkpy-hn-cli"
 version = "0.1.0"
 edition = "2024"
-description = """
-Get the top hacker news posts from the cli!
-
-Usage:
-hn_cli [NUMBER]
-
-Help:
-hn_cli --help
-"""
+description = "Get top hacker news posts from the CLI"
 license = "MIT"
 repository = "https://github.com/dekoder-py/hn_cli"
+readme = "README.md"
 
 [[bin]]
 name = "hn_cli"
