@@ -1,7 +1,22 @@
 [package]
-name = "hn_cli"
+name = "dkpy-hn-cli"
 version = "0.1.0"
 edition = "2024"
+description = """
+Get the top hacker news posts from the cli!
+
+Usage:
+hn_cli [NUMBER]
+
+Help:
+hn_cli --help
+"""
+license = "MIT"
+repository = "https://github.com/dekoder-py/hn_cli"
+
+[[bin]]
+name = "hn_cli"
+path = "src/main.rs"
 
 [dependencies]
 clap = { version = "4.5.60", features = ["derive"] }
