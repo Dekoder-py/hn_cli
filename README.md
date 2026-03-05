@@ -1,8 +1,8 @@
 # Hacker News CLI
 
 ## Usage:
-```bash
 
+```bash
 hn_cli [NUMBER]
 ```
 
